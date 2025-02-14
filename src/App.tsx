@@ -1,9 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
-import { useColorMode } from "@/components/ui/color-mode";
 function App() {
-  const { setColorMode } = useColorMode();
-  setColorMode("light");
   return (
     <Grid
       templateAreas={{
