@@ -18,12 +18,11 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   if (error) return null;
   return (
-    <Box marginX={8} transform="translateY(20px)">
+    <Box>
       <MenuRoot>
         <MenuTrigger asChild>
           <Button variant="surface">
-            {selectedPlatform ? selectedPlatform.name : "Platform"}{" "}
-            <BsChevronDown />
+            {selectedPlatform?.name || "Platform"} <BsChevronDown />
           </Button>
         </MenuTrigger>
         <MenuContent>
