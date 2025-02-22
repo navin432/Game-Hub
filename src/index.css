@@ -11,3 +11,7 @@ h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+form {
+  width: 100%;
+}
