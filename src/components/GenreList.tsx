@@ -25,7 +25,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
             <HStack>
               <Image
                 boxSize="32px"
-                borderRadius={6}
+                borderRadius={"full"}
                 objectFit="cover"
                 src={getCroppedImageUrl(genre.image_background)}
               />
