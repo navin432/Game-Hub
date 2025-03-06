@@ -17,33 +17,31 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   if (error) return null;
   return (
-    <Box>
-      <MenuRoot>
-        <MenuTrigger asChild>
-          <Button variant="surface">
-            {selectedPlatform?.name || "All Platform"} <BsChevronDown />
-          </Button>
-        </MenuTrigger>
-        <MenuContent>
+    <MenuRoot>
+      <MenuTrigger asChild>
+        <Button variant="surface">
+          {selectedPlatform?.name || "All Platform"} <BsChevronDown />
+        </Button>
+      </MenuTrigger>
+      <MenuContent>
+        <MenuItem
+          value={""}
+          key={"none"}
+          onClick={() => onSelectPlatform(null)}
+        >
+          All Platform
+        </MenuItem>
+        {data?.results.map((platform) => (
           <MenuItem
-            value={""}
-            key={"none"}
-            onClick={() => onSelectPlatform(null)}
+            value={platform.slug}
+            key={platform.id}
+            onClick={() => onSelectPlatform(platform)}
           >
-            All Platform
+            {platform.name}
           </MenuItem>
-          {data?.results.map((platform) => (
-            <MenuItem
-              value={platform.slug}
-              key={platform.id}
-              onClick={() => onSelectPlatform(platform)}
-            >
-              {platform.name}
-            </MenuItem>
-          ))}
-        </MenuContent>
-      </MenuRoot>
-    </Box>
+        ))}
+      </MenuContent>
+    </MenuRoot>
   );
 };
 
